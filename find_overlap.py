@@ -11,5 +11,15 @@ def findCourseOverlap(badgeArray):
 
     return overlap
 
+def coursesWithSubject(subject, courseList):
+    subject = subject.upper()
+    coursesWithSubject = []
+    
+    for course in courseList:
+        if course.split(" ", 1)[0] == subject:
+            coursesWithSubject.append(course)
+    
+    return coursesWithSubject
+
 if __name__ == "__main__":
-    print(findCourseOverlap(["sustainability"]))
+    print(coursesWithSubject("BIO", findCourseOverlap(["sustainability"])))
