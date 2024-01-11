@@ -10,7 +10,7 @@ To run the API, run `python server.py` in the root directory. This should execut
 - `lastUpdate.txt` which contains the date the database was last updated
 
 The main page of the opened flask app from the server should be blank; the main usage is in the querying. There are 2 valid API queries:
-- `/courses?badges=""` where the badges string is a comma-seperated list (no spaces) of badges. For example, `/courses?badges=diversity-and-identity,ethics` will return all courses that have both the "Diversity and Identity" and "Ethics" badges (see the badgeList variable in intervalUpdate.py for a list of valid badges). Returns a list of courses in JSON format with all badges listed.
+- `/courses?badges=""` where the badges string is a comma-seperated list (no spaces) of badges. For example, `/courses?badges=diversity-and-identity,ethics` will return all courses that have both the "Diversity and Identity" and "Ethics" badges (see the BADGES variable in intervalUpdate.py for a list of valid badges). Returns a list of courses in JSON format with all badges listed.
 - `/update-date` returns the date the database was last updated, in the format `YYYY-MM-DD hh:mm:ss.ffffff`.
 
 ## Contributing

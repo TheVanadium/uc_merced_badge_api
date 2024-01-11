@@ -4,7 +4,7 @@ import time
 import datetime
 from courseScraper import getUCMercedCourses
 
-badgeList = [
+BADGES: set[str] = [
     "diversity-and-identity",
     "ethics",
     "global-awareness",
@@ -21,7 +21,7 @@ def writeUCMercedCourses():
         writer = csv.writer(f)
         # header
         writer.writerow(["badge", "courses"])
-        for badge in badgeList:
+        for badge in BADGES:
             courses = getUCMercedCourses(badge)
             # replace all commas in the course names with "|commaReplacement|"
             # so that the csv file doesn't get messed up
