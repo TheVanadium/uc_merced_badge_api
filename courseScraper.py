@@ -9,12 +9,20 @@ def getUCMercedCourses(badgeUrl):
     soup = BeautifulSoup(response.text, "lxml")
 
     # course list items are in h2 Courses's next sibling div
+    print(badgeUrl)
+
     courseListItems = soup.find("h2", text="Courses").find_next_sibling("div").find_all("li")
 
     # get the text of each course and remove the "Units: " + unit number ... part
     courses = [course.text for course in courseListItems]
+    courses = [course.replace("’", "'") for course in courses]
+    courses = [course.replace("“", "'") for course in courses]
+    courses = [course.replace("”", "'") for course in courses]
 
     for i, course in enumerate(courses):
+        courses[i] = course.replace("’", "'")
+        courses[i] = course.replace("“", "'")
+        courses[i] = course.replace("”", "'")
         courses[i] = course[:course.index("Units:")].strip()
 
     return courses
