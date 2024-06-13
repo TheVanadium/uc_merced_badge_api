@@ -27,6 +27,8 @@ def get_courses():
     for course in formattedListCall:
         formattedList += "\"" + course + "\", "
 
+    if formattedList == "[": return "[]"
+
     # remove last comma and space
     formattedList = formattedList[:-2]
     formattedList += "]"
