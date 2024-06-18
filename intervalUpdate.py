@@ -15,6 +15,7 @@ BADGES: set[str] = [
     "sustainability",
 ]
 
+
 # function that runs getUCMercedCourses and writes the data to a csv file
 def writeUCMercedCourses():
     with open("ucmerced.csv", "w") as f:
@@ -28,9 +29,11 @@ def writeUCMercedCourses():
             courses = [course.replace(",", "|commaReplacement|") for course in courses]
             writer.writerow([badge, courses])
 
+
 def writeLastScraped():
     with open("lastScraped.txt", "w") as f:
         f.write(str(datetime.datetime.now()))
+
 
 # function to run every 10 minutes
 def intervalUpdate():
@@ -41,6 +44,7 @@ def intervalUpdate():
         print("Wrote to file at", datetime.datetime.now())
         # scrape every 10 minutes
         time.sleep(6000)
+
 
 if __name__ == "__main__":
     intervalUpdate()
